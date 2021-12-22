@@ -10,6 +10,12 @@ services:
     image: homologtwig
     container_name: homologtwig-app
     restart: unless-stopped
+    environment:
+        - DB_HOST=192.168.1.29
+        - DB_PORT=3306
+        - DB_DATABASE=twig
+        - DB_USERNAME=root
+        - DB_PASSWORD=123456
     working_dir: /var/www/
     volumes:
       - ./:/var/www
