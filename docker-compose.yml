@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: twig
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: homologtwig
+    container_name: homologtwig-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - homologtwig
+
+  nginx:
+    image: nginx:alpine
+    container_name: homologtwig-nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - homologtwig
+
+networks:
+  homologtwig:
+    driver: bridge
