@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Reports\RequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::group(['prefix' => 'reports'], function () {
+    Route::group(['prefix' => 'request'], function () {
+        Route::get('/', [RequestController::class, 'index'])->name('reports.request.index');
+    });
 });
