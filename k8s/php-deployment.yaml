@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  labels:
+    io.kompose.service: php
+  name: php
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: php
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      labels:
+        io.kompose.service: php
+    spec:
+      containers:
+        - env:
+            - name: APP_DEBUG
+              value: "true"
+            - name: APP_ENV
+              value: local
+            - name: APP_KEY
+              value: "base64:kE1f3oym11mADtOXUG6wXzkWf37wbBGMRWCXb+chtCc="
+            - name: DB_DATABASE
+              value: twig
+            - name: DB_HOST
+              value: 192.168.1.29
+            - name: DB_PASSWORD
+              value: "123456"
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_USERNAME
+              value: root
+          image: narirock2/homologtwig:v2
+          name: php
+          ports:
+            - containerPort: 80
+          resources: {}
+      restartPolicy: Always
+status: {}

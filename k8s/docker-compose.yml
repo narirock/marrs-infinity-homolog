@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+    php:
+        image: narirock2/homologtwig:v2
+        restart: always
+        ports:
+            - 8000:80
+        environment:
+            - APP_KEY="base64:kE1f3oym11mADtOXUG6wXzkWf37wbBGMRWCXb+chtCc="
+            - APP_ENV=local
+            - APP_DEBUG=true
+            - DB_PORT=3306
+            - DB_HOST=192.168.1.29
+            - DB_DATABASE=twig
+            - DB_USERNAME=root
+            - DB_PASSWORD=123456
