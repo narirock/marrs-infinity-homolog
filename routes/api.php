@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\HomologWebhook;
+use App\Http\Controllers\CofluenceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// Route::prefix('homolog')->group(function () {
+//     Route::post('webhook', [HomologWebhook::class, 'handle']);
+// });
+
 Route::prefix('homolog')->group(function () {
-    Route::post('webhook', [HomologWebhook::class, 'handle']);
+    Route::post('webhook', [CofluenceController::class, 'handle']);
 });

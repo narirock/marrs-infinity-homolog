@@ -12,7 +12,6 @@ class HomologWebhook extends Controller
     public function handle(Request $request)
     {
 
-
         $headers = collect($request->header())->transform(function ($item) {
             return $item[0];
         });
