@@ -39,7 +39,7 @@ class SubTestCommand extends Command
     {
         $message = $this->argument('message');
 
-        Redis::publish('twig-chanel', $message);
+        Redis::publish('-chanel', $message);
 
         // Redis::subscribe(['teste'], function ($message) {
         //     $this->info($message);
