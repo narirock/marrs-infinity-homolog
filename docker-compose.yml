@@ -1,13 +1,7 @@
 version: "3.7"
 services:
   app:
-    build:
-      args:
-        user: twig
-        uid: 1000
-      context: ./
-      dockerfile: Dockerfile
-    image: homologtwig
+    image: narirock2/homologtwig:v1
     container_name: homologtwig-app
     restart: unless-stopped
     environment:
