@@ -30,23 +30,29 @@
         <table class="table">
             <thead>
                 <tr class="text-center">
-                    <th>Dados</th>
-                    <th>Headers</th>
-                    <th>Data</th>
+                    <th>Recebido</th>
+                    <th>Name</th>
+                    <th>Sinal</th>
+                    <th>Operação</th>
+                    <th>Moeda</th>
+                    <th>Descrição</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($dataIns as $data)
+                @foreach ($signals as $signal)
                     <tr>
-                        <td>@dump(json_decode($data->data))</td>
-                        <td>@dump(json_decode($data->header))</td>
-                        <td class='text-center'>{{ $data->created_at }}</td>
+                        <td class='text-center'>{{ $signal->created_at->format('d/m/Y H:i') }}</td>
+                        <td class='text-center'>{{ $signal->name }}</td>
+                        <td class='text-center'>{{ $signal->sinal }}</td>
+                        <td class='text-center'>{{ $signal->side }}</td>
+                        <td class='text-center'>{{ $signal->symbol }}</td>
+                        <td>{{ $signal->text }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
         <div class="row">
-            <div class="col col-sm-12">{{ $dataIns->links() }}</div>
+            <div class="col col-sm-12">{{ $signals->links() }}</div>
         </div>
 
     </div>
