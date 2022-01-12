@@ -65,7 +65,7 @@ class CofluenceController extends Controller
     public function newCofluence($request)
     {
         $cofluence = new Cofluence();
-        $cofluence->counter = $request->counter;
+        $cofluence->counter = 1;
         $cofluence->sinal = $request->sinal;
         $cofluence->side = $request->side;
         $cofluence->symbol = $request->symbol;
