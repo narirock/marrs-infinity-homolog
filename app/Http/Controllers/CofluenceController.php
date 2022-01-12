@@ -37,7 +37,7 @@ class CofluenceController extends Controller
             if ($cofluence->expiry < now()) {
                 //expirou, criar nova cofluencia
                 $cofluence->counter = 1;
-                $cofluence->expiry = now()->addMinutes($this->getMinutes($request->sinal));
+                $cofluence->expiry = now()->addMinutes(240);
                 $cofluence->save();
             } else {
                 //nao expirou, atualizar cofluencia
