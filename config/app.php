@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Marrs\MarrsAdmin\MarrsAdminServiceProvider::class,
         /*
          * Application Service Providers...
          */

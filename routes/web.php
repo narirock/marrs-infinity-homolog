@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CoinController;
 use App\Http\Controllers\Reports\RequestController;
+use App\Http\Controllers\ValidationTimeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(
+    ['prefix' => 'admin', 'middleware' => ['admin']],
+    function () {
+        Route::resource('coins', CoinController::class, ['as' => 'admin']);
+        Route::resource('validationtimes', ValidationTimeController::class, ['as' => 'admin']);
+    }
+);
 
 Route::get('/', function () {
     return view('welcome');
