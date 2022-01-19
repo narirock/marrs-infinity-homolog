@@ -11,7 +11,7 @@
     <!-- Favicon -->
     <link rel="icon" href="{{ Config::get('marrs-admin.favicon') }}">
     <title>{{ env('APP_NAME') }} | Painel</title>
-
+    @livewireStyles
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -53,7 +53,7 @@
                 </footer>
             </div>
         </div>
-
+        @livewireScripts
         @stack('modals')
 
         @stack('vue')

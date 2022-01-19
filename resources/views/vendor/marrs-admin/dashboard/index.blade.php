@@ -5,4 +5,9 @@
 @endsection
 
 @section('content')
+    <div class="card">
+        <div class="card-body">
+            @livewire('cofluence-table')
+        </div>
+    </div>
 @endsection

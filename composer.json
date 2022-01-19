@@ -11,6 +11,7 @@
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "livewire/livewire": "^2.9",
         "narirock/marrs-admin": "dev-dev",
         "predis/predis": "^1.1"
     },
