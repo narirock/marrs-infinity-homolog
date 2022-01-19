@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CoinController;
+use App\Http\Controllers\ConfigurationController;
 use App\Http\Controllers\Reports\RequestController;
 use App\Http\Controllers\ValidationTimeController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,9 @@ Route::group(
     function () {
         Route::resource('coins', CoinController::class, ['as' => 'admin']);
         Route::resource('validationtimes', ValidationTimeController::class, ['as' => 'admin']);
+
+        Route::get('configurations', [ConfigurationController::class, 'index'])->name('admin.configurations.index');
+        Route::post('configurations', [ConfigurationController::class, 'store'])->name('admin.configurations.store');
     }
 );
 
