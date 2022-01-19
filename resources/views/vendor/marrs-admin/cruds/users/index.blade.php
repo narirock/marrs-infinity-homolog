@@ -23,7 +23,7 @@
                         <tr>
                             <td class="text-center">{{ $user->name }}</td>
                             <td class="text-center">{{ $user->email }}</td>
-                            <td class="text-center">{{ Config::get('marrs-admin.user_types')[$user->type] }}</td>
+                            <td class="text-center">{{ Config::get('marrs-admin.user_types')[$user->type] ?? '' }}</td>
                             <td class="text-center">
                                 <a href="{{ route('admin.users.edit', $user->id) }}"
                                     class="btn btn-info btn-sm">Editar</a>
