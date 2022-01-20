@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cofluence;
+use App\Models\Configuration;
 use App\Models\SentCofluence;
 use App\Models\Signal;
 use Illuminate\Http\Request;
@@ -13,12 +14,19 @@ class CofluenceController extends Controller
 
     public function getMinutes($sinal)
     {
-        switch ($sinal) {
+        /*switch ($sinal) {
             case '1M':
                 return 1;
             default:
                 return 15;
+        }*/
+        $time = Configuration::where('var', 'validationtime')->first();
+
+        if ($time) {
+            return $time->value;
         }
+
+        return 240;
     }
 
 
@@ -37,7 +45,7 @@ class CofluenceController extends Controller
             if ($cofluence->expiry < now()) {
                 //expirou, criar nova cofluencia
                 $cofluence->counter = 1;
-                $cofluence->expiry = now()->addMinutes(240);
+                $cofluence->expiry = now()->addMinutes($this->getMinutes($request->sinal));
                 $cofluence->save();
             } else {
                 //nao expirou, atualizar cofluencia
