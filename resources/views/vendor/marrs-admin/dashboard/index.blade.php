@@ -83,17 +83,27 @@
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script type="text/javascript">
         new TradingView.widget({
-            "autosize": true,
             "symbol": "BITSTAMP:BTCUSD",
             "interval": "D",
-            "timezone": "Etc/UTC",
-            "theme": "Light",
+            "symbol": "BITSTAMP:BTCUSD",
+            "width": "100%",
+            "height": 610,
+            "timezone": "America/Sao_Paulo",
+            "theme": "light",
             "style": "1",
-            "locale": "ptBR",
+            "locale": "br",
             "toolbar_bg": "#f1f3f6",
-            "enable_publishing": false,
+            "enable_publishing": true,
+            "withdateranges": true,
+            "range": "ALL",
+            "hide_side_toolbar": false,
             "allow_symbol_change": true,
-            "hideideas": true,
+            "details": true,
+            "hotlist": true,
+            "calendar": true,
+            "studies": [
+                "MASimple@tv-basicstudies"
+            ],
             "container_id": "tradingview"
         });
     </script>
