@@ -23,7 +23,7 @@
         integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous">
     </script>
     <script>
-        var socket = io('{{ env('SOCKET_IO') }}');
+        var socket = io.connect("ws://{{ env('SOCKET_IO') }}");
         var messages = document.getElementById('messages');
         var form = document.getElementById('form');
         var input = document.getElementById('input');
