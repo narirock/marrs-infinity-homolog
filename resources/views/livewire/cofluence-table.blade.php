@@ -1,4 +1,7 @@
 <div>
+    <div class="container text-center" wire:loading>
+        <i class="fas fa-spinner fa-spin"></i> carregando...
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr class="text-center">
