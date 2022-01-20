@@ -14,6 +14,7 @@ class Signal extends Model
         'name',
         'text',
         'side',
-        'symbol'
+        'symbol',
+        'price'
     ];
 }
