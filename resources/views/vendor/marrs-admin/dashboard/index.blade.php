@@ -83,9 +83,8 @@
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script type="text/javascript">
         new TradingView.widget({
-            "symbol": "BITSTAMP:BTCUSD",
             "interval": "D",
-            "symbol": "BITSTAMP:BTCUSD",
+            "symbol": "BTCUSDT",
             "width": "100%",
             "height": 610,
             "timezone": "America/Sao_Paulo",
