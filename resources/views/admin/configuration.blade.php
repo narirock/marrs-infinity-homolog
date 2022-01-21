@@ -25,13 +25,14 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
+
                 <div class="col col-sm-3">
-                    <label for="validationtime">Tempo de Validação</label>
-                    <select name="validationtime" id="validationtime" class="form-control">
-                        @foreach ($validationtimes as $validationtime)
-                            <option value="{{ $validationtime->minutes }}"
-                                {{ $validationtime->id == @$configurations['validationtime'] ? 'selected' : '' }}>
-                                {{ $validationtime->description }}</option>
+                    <label for="strategy">Tempo de Validação</label>
+                    <select name="strategy" id="strategy" class="form-control">
+                        @foreach ($strategies as $strategy)
+                            <option value="{{ $strategy->id }}"
+                                {{ $strategy->id == @$configurations['strategy'] ? 'selected' : '' }}>
+                                {{ $strategy->name }}</option>
                         @endforeach
                     </select>
                 </div>

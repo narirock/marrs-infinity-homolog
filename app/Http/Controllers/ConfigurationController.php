@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use Illuminate\Http\Request;
 use App\Models\Configuration;
+use App\Models\Strategy;
 use App\Models\ValidationTime;
 
 class ConfigurationController extends Controller
@@ -14,7 +15,7 @@ class ConfigurationController extends Controller
         $configurations = array(); //\App\Models\Configuration::all();
         return view('admin.configuration', [
             'configurations' => $configurations,
-            'validationtimes' => ValidationTime::all(),
+            'strategies' => Strategy::all(),
         ]);
     }
 

@@ -4,13 +4,13 @@
     <div class="col col-sm-4">
         <div class="form-group">
             {!! Form::label('code', 'Codigo') !!}
-            {!! Form::text('code', null, ['class' => 'form-control', 'placeholder' => 'Nome']) !!}
+            {!! Form::text('code', null, ['class' => 'form-control', 'placeholder' => 'Codigo']) !!}
         </div>
     </div>
     <div class="col col-sm-8">
         <div class="form-group">
             {!! Form::label('description', 'Descrição') !!}
-            {!! Form::text('description', null, ['class' => 'form-control', 'placeholder' => 'Link']) !!}
+            {!! Form::text('description', null, ['class' => 'form-control', 'placeholder' => 'Descrição']) !!}
         </div>
     </div>
 
