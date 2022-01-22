@@ -47,13 +47,13 @@ class CofluenceController extends Controller
                 $cofluence = $this->incrementStrategyCofluence($cofluence, $request->sinal);
 
                 if ($this->validateCofluence($cofluence, $strategy)) {
-                    dump($strategy->name . ' - atendida');
+                    //dump($strategy->name . ' - atendida');
                     $cofluence = $this->resetStrategyCofluence($cofluence, $strategy);
                 } else {
-                    dump($strategy->name . ' - não atendida');
+                    //dump($strategy->name . ' - não atendida');
                 }
             } else {
-                dump($strategy->name . ' - nao tem sinal');
+                //dump($strategy->name . ' - nao tem sinal');
             }
         }
 
