@@ -43,9 +43,14 @@ class StrategyController extends Controller
      */
     public function store(StrategyRequest $request)
     {
-        $strategy = new Strategy();
-        $strategy->fill($request->all());
-        $strategy->save();
+
+        $strategy = Strategy::create([
+            "name" => $request->name,
+            "minutes" => $request->minutes,
+            "symbol" => $request->symbol,
+            "signals" => $request->signals,
+            "signal_types" => json_encode($request->signal_types),
+        ]);
 
         return redirect()->route('admin.strategies.index');
     }
@@ -85,7 +90,13 @@ class StrategyController extends Controller
      */
     public function update(StrategyRequest $request, Strategy $strategy)
     {
-        $strategy->fill($request->all());
+        $strategy->update([
+            "name" => $request->name,
+            "minutes" => $request->minutes,
+            "symbol" => $request->symbol,
+            "signals" => $request->signals,
+            "signal_types" => json_encode($request->signal_types),
+        ]);
         $strategy->save();
 
         return redirect()->route('admin.strategies.index');

@@ -14,6 +14,7 @@ class SentCofluence extends Model
         'side',
         'expiry',
         'symbol',
+        'strategy_id',
         'color'
     ];
 }

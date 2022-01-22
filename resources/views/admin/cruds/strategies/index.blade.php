@@ -1,7 +1,7 @@
 @extends(Config::get('marrs-admin.template.admin'))
 
 @section('title')
-    <h1><i class="fas fa-chess"></i> | Estrategias</h1>
+    <h1><i class="fas fa-chess"></i> | Estratégias</h1>
 @endsection
 
 @section('content')
@@ -27,7 +27,7 @@
                             <td class="text-center">{{ $strategy->minutes }}</td>
                             <td class="text-center">{{ $strategy->symbol }}</td>
                             <td class="text-center">{{ $strategy->signals }}</td>
-                            <td class="text-center">{{ implode(', ', json_decode($strategy->signal_types)) }}</td>
+                            <td class="text-center">{{ $strategy->signal_types }}</td>
                             <td class="text-center">
                                 <a href="{{ route('admin.strategies.edit', $strategy->id) }}"
                                     class="btn btn-info btn-sm">Editar</a>
