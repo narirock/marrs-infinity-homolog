@@ -17,4 +17,9 @@ class SentCofluence extends Model
         'strategy_id',
         'color'
     ];
+
+    public function strategy()
+    {
+        return $this->belongsTo('App\Models\Strategy');
+    }
 }

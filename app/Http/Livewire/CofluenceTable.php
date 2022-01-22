@@ -25,6 +25,6 @@ class CofluenceTable extends Component
     public function reloadCofluences()
     {
         $strategy_id = Configuration::where('var', 'strategy')->first()->value;
-        $this->cofluences = SentCofluence::where('strategy_id', $strategy_id)->orderby('created_at', 'desc')->limit(10)->get();
+        $this->cofluences = SentCofluence::with('strategy')->where('strategy_id', $strategy_id)->orderby('created_at', 'desc')->limit(10)->get();
     }
 }

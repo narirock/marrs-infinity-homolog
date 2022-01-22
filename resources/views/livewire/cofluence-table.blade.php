@@ -7,7 +7,7 @@
             <tr class="text-center">
                 <th>Data / Hora</th>
                 <th>Moeda</th>
-                <th>Sinal</th>
+                <th>Estratégia</th>
                 <th>Operação</th>
             </tr>
         </thead>
@@ -16,7 +16,7 @@
                 <tr class="text-center">
                     <td>{{ $cofluence->created_at->format('d/m/Y H:i') }}</td>
                     <td>{{ $cofluence->symbol }}</td>
-                    <td>{{ $cofluence->sinal }}</td>
+                    <td>{{ $cofluence->strategy->name }}</td>
                     <td>{!! $cofluence->side == 'sell' ? '<i class="fas fa-caret-down text-danger" style="font-size:30px"></i>' : '<i class="fas fa-caret-up text-success mw-100" style="font-size:30px"></i>' !!}
                     </td>
                 </tr>

@@ -53,28 +53,28 @@
         });*/
 
         socket.on('triggerAction', function(signal, color) {
-            var msg = "";
-            Livewire.emit('reloadCofluences');
 
-            var x = document.getElementById("snackbar");
-            x.className = "show";
-            $("#snackbar").css("background-color", color);
+            var signalData = JSON.parse(signal);
+            if (signalData.strategy_id ==
+                {{ App\Models\Configuration::where('var', 'strategy')->first()->value ?? null }}) {
+                var msg = "";
+                Livewire.emit('reloadCofluences');
 
-            if (color == 'green') {
-                msg = "Comprar " + signal;
-            } else {
-                msg = "Vender " + signal;
+                var x = document.getElementById("snackbar");
+                x.className = "show";
+                $("#snackbar").css("background-color", color);
+
+                if (color == 'green') {
+                    msg = "Comprar " + signal;
+                } else {
+                    msg = "Vender " + signal;
+                }
+                x.innerHTML = msg;
+
+                setTimeout(function() {
+                    x.className = x.className.replace("show", "");
+                }, 9000);
             }
-            x.innerHTML = msg;
-            setTimeout(function() {
-                x.className = x.className.replace("show", "");
-            }, 3000);
-            /*alert(signal);
-            document.body.style.backgroundColor = color;
-            var item = document.createElement('li');
-            item.textContent = signal;
-            messages.appendChild(item);
-            window.scrollTo(0, document.body.scrollHeight);*/
         });
     </script>
 @endpush
