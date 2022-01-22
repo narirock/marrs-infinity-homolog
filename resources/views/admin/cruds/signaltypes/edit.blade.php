@@ -5,7 +5,6 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {{ $signaltype }}
             {!! Form::model($signaltype, ['url' => route('admin.signaltypes.update', $signaltype->id), 'files' => true, 'method' => 'PUT']) !!}
 
             @include("admin.cruds.signaltypes._form")

@@ -26,23 +26,28 @@
     </div>
 </div>
 <div class="row">
-    <div class="col col-sm-3">
+    <div class="col col-sm-12">
+        <h4>Sinais exigidos</h4>
         @foreach ($signal_types as $signal_type)
-            <div class="form-group">
-                {!! Form::label('signal_type_' . $signal_type->id, $signal_type->name) !!}
-                {!! Form::checkbox('signal_type_' . $signal_type->name, null, ['class' => 'form-control']) !!}
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="signal_types[]" value="{{ $signal_type->name }}"
+                    {{ in_array($signal_type->name, json_decode($strategy->signal_types ?? '[]')) ? 'checked' : '' }}>
+                <label class="form-check-label">
+                    {{ $signal_type->name }}
+                </label>
             </div>
         @endforeach
     </div>
 </div>
-<div class="row">
+<hr>
+{{-- <div class="row">
     <div class="col col-sm-3">
         <div class="form-group">
             {!! Form::label('signal_types', 'Tipos de Sinal') !!}
             {!! Form::text('signal_types', null, ['class' => 'form-control']) !!}
         </div>
     </div>
-</div>
+</div> --}}
 
 
 <div>

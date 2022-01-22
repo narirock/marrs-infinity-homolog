@@ -39,7 +39,7 @@ class StrategyRequest extends FormRequest
             'minutes.required' => 'Digite a quantidade de minutos',
             'symbol.required' => 'Selecione o símbolo da moeda',
             'signals.required' => 'Digite a quantidade de sinais',
-            'signal_types.required' => 'Digite os tipos obrigatórios de sinais',
+            'signal_types.required' => 'Selecione ao menos um tipo de sinal',
         ];
     }
 }

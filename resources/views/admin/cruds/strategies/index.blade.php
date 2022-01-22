@@ -14,7 +14,7 @@
                         <th>Periodo</th>
                         <th>Moeda</th>
                         <th>Sinais</th>
-                        <th>Tipos</th>
+                        <th>Tipos Exigidos</th>
                         <th width="150" class="text-center">
                             <a href="{{ route('admin.strategies.create') }}" class="btn btn-success  btn-sm">Novo</a>
                         </th>
@@ -27,7 +27,7 @@
                             <td class="text-center">{{ $strategy->minutes }}</td>
                             <td class="text-center">{{ $strategy->symbol }}</td>
                             <td class="text-center">{{ $strategy->signals }}</td>
-                            <td class="text-center">{{ $strategy->signal_types }}</td>
+                            <td class="text-center">{{ implode(', ', json_decode($strategy->signal_types)) }}</td>
                             <td class="text-center">
                                 <a href="{{ route('admin.strategies.edit', $strategy->id) }}"
                                     class="btn btn-info btn-sm">Editar</a>
