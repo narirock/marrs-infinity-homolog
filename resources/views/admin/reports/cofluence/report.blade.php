@@ -35,7 +35,7 @@
 
                         <tr>
                             <td class="text-center">
-                                {{ Carbon\Carbon::create($signal['created_at'])->format('d/m/Y H:i:s') }}</td>
+                                {{ $signal['created_at']->format('d/m/y H:i:s') }}</td>
                             <td>{{ $signal['text'] }}</td>
                             <td class="text-center">{{ $signal['side'] }}</td>
                             <td class="text-center">{{ $signal['symbol'] }}</td>

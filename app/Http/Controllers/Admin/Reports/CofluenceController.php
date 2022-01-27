@@ -72,8 +72,7 @@ class CofluenceController extends Controller
             ->get()->filter(function ($signal) use (&$types, $strategy) {
                 $types[$signal->sinal]++;
                 return $this->checkRules($strategy, $types);
-            })->toArray();
-
+            });
         return  $signals;
     }
 
