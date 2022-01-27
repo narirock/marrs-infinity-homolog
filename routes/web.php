@@ -1,12 +1,16 @@
 <?php
 
+use App\Http\Controllers\CofluenceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoinController;
 use App\Http\Controllers\StrategyController;
 use App\Http\Controllers\SignalTypesController;
 use App\Http\Controllers\ConfigurationController;
 use App\Http\Controllers\ValidationTimeController;
+
 use App\Http\Controllers\Reports\RequestController;
+
+use  App\Http\Controllers\Admin\Reports\CofluenceController as CofluenceReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +33,12 @@ Route::group(
 
         Route::get('configurations', [ConfigurationController::class, 'index'])->name('admin.configurations.index');
         Route::post('configurations', [ConfigurationController::class, 'store'])->name('admin.configurations.store');
+
+        //Relatórios
+        Route::group(['prefix' => 'reports'], function () {
+            Route::get('/cofluenceform', [CofluenceReportController::class, 'form'])->name('admin.reports.cofluence.form');
+            Route::get('/cofluencereport', [CofluenceReportController::class, 'report'])->name('admin.reports.cofluence.report');
+        });
     }
 );
 
