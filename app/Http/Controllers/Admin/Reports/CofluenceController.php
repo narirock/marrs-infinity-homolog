@@ -70,21 +70,24 @@ class CofluenceController extends Controller
             ->whereBetween('created_at', [Carbon::create($sentCofluence->created_at)->subMinute($strategy->minutes), $sentCofluence->created_at])
             ->orderby('created_at', 'desc')
             ->get()->filter(function ($signal) use (&$types, $strategy) {
+                $response = $this->checkRules($strategy, $types);
                 $types[$signal->sinal]++;
-                return $this->checkRules($strategy, $types);
+                return $response;
             });
         return  $signals;
     }
 
     public function checkRules($strategy, $current)
     {
+
+
         foreach ($current as $type) {
             if ($type < 1) {
                 return true;
             }
         }
 
-        if (array_sum($current) > $strategy->signals) {
+        if (array_sum($current) >= $strategy->signals) {
             return false;
         }
 
